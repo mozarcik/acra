@@ -281,7 +281,11 @@ public enum ReportField {
     /**
      * Retrieves the user IP address(es).
      */
-    USER_IP;
+    USER_IP,
+    /**
+     * Signature of apk
+     */
+    APP_SIGNATURE;
 
     /**
      * Whether this field is a collection of key/value pairs.

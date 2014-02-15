@@ -42,6 +42,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
+import android.content.pm.Signature;
 import android.os.Environment;
 import android.text.format.Time;
 import android.util.Log;
@@ -278,6 +279,10 @@ public final class CrashReportDataFactory {
                 }
                 if (crashReportFields.contains(APP_VERSION_NAME)) {
                     crashReportData.put(APP_VERSION_NAME, pi.versionName != null ? pi.versionName : "not set");
+                }
+                if (crashReportFields.contains(APP_SIGNATURE)) {
+                    Signature[] sign = pi.signatures;
+                    crashReportData.put(APP_SIGNATURE, sign[0].toCharsString());
                 }
             } else {
                 // Could not retrieve package info...

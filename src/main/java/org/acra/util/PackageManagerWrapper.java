@@ -60,7 +60,7 @@ public final class PackageManagerWrapper {
         }
 
         try {
-            return pm.getPackageInfo(context.getPackageName(), 0);
+            return pm.getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES);
         } catch (PackageManager.NameNotFoundException e) {
             Log.v(LOG_TAG, "Failed to find PackageInfo for current App : " + context.getPackageName());
             return null;
